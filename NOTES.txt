@@ -1,0 +1,15 @@
+# Image builder
+http://localhost:8080/image/policy:1.117/image.jpg
+
+# inspiration
+http://www.siiimple.com/
+http://www.presentplus.com/
+
+Header:
+
+background-top: #161B21
+text: #FFFFFF
+
+font-weight: 700;
+font-family: "ars-maquette-web", "helvetica neue", arial, sans-serif;
+font-style: normal;

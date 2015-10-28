@@ -1,0 +1,9 @@
+%h1.button= locals[:tag_line]
+- locals[:articles].each do |article|
+  %section.post
+    %header.post-header
+      %h1.post-title
+        %a{:href => url_for(article.contentId)}= article.name
+    %div.post-description
+      %p= article.text
+      

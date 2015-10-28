@@ -1,0 +1,11 @@
+ul.nav {
+  list-style: none;
+}
+
+ul.tags {
+  list-style: none;
+}
+
+ul.tags li {
+  display: inline;
+}
