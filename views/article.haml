@@ -1,18 +1,20 @@
-%ul.tags
-  - metadata.dimensions.each do |dimension|
-    - dimension.entities.each do |entity|
-      %li
-        %a{:class => 'button', 'data-dimension' => dimension.name,
-          :href => URI.escape("/topic/#{dimension.name}/#{entity.name}") }= entity.name
-
 .article-header
-  %p.date= created.strftime('%A %d %B %Y')
   %h1.title= article.title
+  %span.small= created.strftime('%A %d %B %Y')
   %h5.lead= article.lead
 
+%section.related-topics
+  %ul.tags
+    - metadata.dimensions.each do |dimension|
+      - dimension.entities.each do |entity|
+        %li
+          %a{:class => 'tag', 'data-dimension' => dimension.name,
+            :href => URI.escape("/topic/#{dimension.name}/#{entity.name}") }= "#"+entity.name
+
+
+%img.article-img{:src => img_url(article.images[0], 800)}
 
 .article-body
   %p= article.body
 
 
-%img.article-img{:src => img_url(article.images[0], 800)}

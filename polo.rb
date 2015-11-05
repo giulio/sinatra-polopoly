@@ -1,11 +1,10 @@
 require 'sinatra'
 require 'haml'
-require_relative '../content-api-toolkit/ruby/content-api'
+require_relative '../content-api-sdks/ruby/content-api'
 
 before do
   @contentApi = ContentApi.new.auth
 end
-
 
 
 get '/content/:c_id' do
@@ -17,14 +16,10 @@ get '/content/:c_id' do
   }
 end
 
-
-
 get '/' do
   results = @contentApi.search({ :q => '*', :fq => 'inputTemplate:standard.Article', :variant => 'com.atex.plugins.grid.teaserable', :sort => 'modifiedDate desc', :rows => '50'})
-  haml :index, :locals => { :articles => results.aspects, :tag_line => "Recent" }
+  haml :index, :locals => { :articles => results.aspects, :tag_line => "Recents" }
 end
-
-
 
 get '/topic/:dimension/:entity' do
   results = @contentApi.search({ :q => '*',
@@ -33,7 +28,6 @@ get '/topic/:dimension/:entity' do
                 :sort => 'modifiedDate desc', :rows => '50'})
   haml :index, :locals => { :articles => results.aspects, :tag_line => params[:entity] }
 end
-
 
 
 helpers do
